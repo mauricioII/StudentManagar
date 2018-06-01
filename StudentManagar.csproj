@@ -42,6 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Filter.cs" />
+    <Compile Include="Domain\Gender.cs" />
+    <Compile Include="Domain\Student.cs" />
+    <Compile Include="Domain\IStudentRepository.cs" />
+    <Compile Include="Domain\StudentType.cs" />
+    <Compile Include="Infrastructure\StudentCsvRepository.cs" />
+    <Compile Include="Infrastructure\StudentRepositoryWithSort.cs" />
+    <Compile Include="Infrastructure\StudentsSortExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
