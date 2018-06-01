@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StudentManagar.Infrastructure
 {
-    class StudentRepositoryWithSort : IStudentRepository
+    public class StudentRepositoryWithSort : IStudentRepository
     {
         private IStudentRepository repository;
 

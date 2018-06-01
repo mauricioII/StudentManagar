@@ -47,6 +47,7 @@
     <Compile Include="Domain\Student.cs" />
     <Compile Include="Domain\IStudentRepository.cs" />
     <Compile Include="Domain\StudentType.cs" />
+    <Compile Include="FilterBinding.cs" />
     <Compile Include="Infrastructure\StudentCsvRepository.cs" />
     <Compile Include="Infrastructure\StudentRepositoryWithSort.cs" />
     <Compile Include="Infrastructure\StudentsSortExtension.cs" />
@@ -55,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="input.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
