@@ -33,15 +33,39 @@ namespace StudentManagar
                 return;
             }
 
-
-            IStudentRepository studentRepository = new StudentRepositoryWithSort(new StudentCsvRepository(filePath));
-            var students = studentRepository.Search(filter);
-            foreach (var student in students)
+            try
             {
-                Console.WriteLine($"Name:{student.Name}, Type:{student.Type}, Gender:{student.Gender}, Date:{student.Date:f}");
+                IStudentRepository studentRepository = LoadStudentsFromFileToRepository(filePath);
+                var students = studentRepository.Search(filter);
+                foreach (var student in students)
+                {
+                    Console.WriteLine($"Name:{student.Name}, Type:{student.Type}, Gender:{student.Gender}, Date:{student.Date:f}");
+                }
+
+                if(!students.Any())
+                {
+                    Console.WriteLine("No result found");
+                }
+            }catch(Exception e)
+            {
+                Console.Error.WriteLine($"A problem to try to read the csv file to recover the list of students: {e.Message}");
             }
 
+
             Console.ReadKey();
+        }
+
+        public static IStudentRepository LoadStudentsFromFileToRepository(string filePath)
+        {
+            var studentRepository = new StudentRepositoryWithSort(new StudentRepositoryInMemory());
+            var handleStudentsCsvFile = new HandleStudentsCsvFile(filePath);
+            var students = handleStudentsCsvFile.GetAllStudentsFromFile();
+            foreach (var student in students)
+            {
+                studentRepository.Create(student);
+            }
+
+            return studentRepository;
         }
     }
 }

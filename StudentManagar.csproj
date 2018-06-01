@@ -48,11 +48,12 @@
     <Compile Include="Domain\IStudentRepository.cs" />
     <Compile Include="Domain\StudentType.cs" />
     <Compile Include="FilterBinding.cs" />
-    <Compile Include="Infrastructure\StudentCsvRepository.cs" />
+    <Compile Include="Infrastructure\StudentRepositoryInMemory.cs" />
     <Compile Include="Infrastructure\StudentRepositoryWithSort.cs" />
     <Compile Include="Infrastructure\StudentsSortExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HandleStudentsCsvFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
